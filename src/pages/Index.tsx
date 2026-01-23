@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import CustomCursor from '@/components/CustomCursor';
 import ParallaxBlobs from '@/components/ParallaxBlobs';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -19,7 +18,6 @@ const Index = () => {
 
   return (
     <div className="dot-matrix scanline relative">
-      <CustomCursor />
       <ParallaxBlobs />
       <Navbar onOpenBrandForm={openBrandForm} />
       <HeroSection onOpenBrandForm={openBrandForm} />
