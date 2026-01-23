@@ -1,0 +1,67 @@
+import { useEffect, useState } from 'react';
+
+interface NavbarProps {
+  onOpenBrandForm: () => void;
+}
+
+const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed w-full z-[100] px-6 md:px-12 flex justify-between items-center transition-all duration-500 ${
+        isScrolled ? 'glass py-4' : 'py-6'
+      }`}
+    >
+      <div
+        className="flex items-center space-x-3 group cursor-pointer"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <div className="w-10 h-10 bg-white flex items-center justify-center rounded-sm rotate-45 group-hover:bg-primary group-hover:rotate-0 transition-all duration-500">
+          <div className="w-2 h-2 bg-black -rotate-45 group-hover:rotate-0" />
+        </div>
+        <span className="font-heading font-bold text-2xl tracking-tighter uppercase">
+          DOT<span className="text-primary">FLUENCE</span>
+        </span>
+      </div>
+
+      <div className="hidden md:flex space-x-12 text-[10px] uppercase font-black tracking-[0.3em] text-muted-foreground">
+        <a href="#logic" className="hover:text-white transition">
+          The Logic
+        </a>
+        <a href="#services" className="hover:text-white transition">
+          Capabilities
+        </a>
+        <a href="#proof" className="hover:text-white transition text-primary">
+          Evidence
+        </a>
+      </div>
+
+      <div className="flex items-center space-x-4">
+        <a
+          href="#join"
+          className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-white transition"
+        >
+          Login
+        </a>
+        <button
+          onClick={onOpenBrandForm}
+          className="btn-protocol px-6 py-2.5 rounded-sm text-[10px]"
+        >
+          Get Access
+        </button>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
