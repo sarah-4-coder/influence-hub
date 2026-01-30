@@ -93,7 +93,7 @@ const CaseEvidenceSection = () => {
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-black text-primary">LIVE</p>
+                <p className="text-3xl font-black text-muted-foreground">COMPLETED</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   Status
                 </p>
