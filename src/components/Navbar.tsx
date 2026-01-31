@@ -56,7 +56,7 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
           <a
-            href="#join"
+            href="https://platform.dotfluence.in/login"
             className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition"
           >
             Login
@@ -110,7 +110,7 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
           <div className="pt-8 flex flex-col items-center space-y-6">
             <ThemeToggle />
             <a
-              href="#join"
+              href="https://platform.dotfluence.in/login"
               onClick={closeMobileMenu}
               className="text-lg font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition"
             >

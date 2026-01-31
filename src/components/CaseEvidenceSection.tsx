@@ -41,13 +41,13 @@ const CaseEvidenceSection = () => {
             </div>
             <h4 className="text-5xl font-black mb-8 uppercase tracking-tighter">Flipkart</h4>
             <p className="text-muted-foreground text-lg mb-12 leading-relaxed font-light">
-              Executed a <span className="text-white font-bold">1,000+ creator activation</span>{' '}
+              Executed a <span className="text-black font-bold">1,000+ creator activation</span>{' '}
               within 14 days. Spread across specific categories (50K+ and 100K+ tiers) with
               structured orchestration.
             </p>
-            <div className="grid grid-cols-3 gap-6 border-t border-white/10 pt-10">
+            <div className="grid md:grid-cols-3 gap-6 border-t border-white/10 pt-10">
               <div>
-                <p className="text-3xl font-black text-white">
+                <p className="text-3xl font-black text-black">
                   {flipkartCreators.toLocaleString()}+
                 </p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
@@ -55,13 +55,13 @@ const CaseEvidenceSection = () => {
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-black text-white">{flipkartDays}</p>
+                <p className="text-3xl font-black text-black">{flipkartDays}</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   Days
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-black text-white">{flipkartROI}%</p>
+                <p className="text-3xl font-black text-black">{flipkartROI}%</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   ROI
                 </p>
@@ -82,22 +82,22 @@ const CaseEvidenceSection = () => {
             <h4 className="text-5xl font-black mb-8 uppercase tracking-tighter">Myntra</h4>
             <p className="text-muted-foreground text-lg mb-12 leading-relaxed font-light">
               Direct management and orchestration of{' '}
-              <span className="text-white font-bold">598 influencers</span> simultaneously. Zero
+              <span className="text-black font-bold">598 influencers</span> simultaneously. Zero
               manual friction achieved through platform logic.
             </p>
             <div className="grid grid-cols-2 gap-6 border-t border-white/10 pt-10">
               <div>
-                <p className="text-3xl font-black text-white">{myntraNodes}</p>
+                <p className="text-3xl font-black text-black">{myntraNodes}</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   Nodes Orchestrated
                 </p>
               </div>
-              <div>
+              {/* <div>
                 <p className="text-3xl font-black text-muted-foreground">COMPLETED</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   Status
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
