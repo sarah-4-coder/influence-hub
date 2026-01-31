@@ -12,7 +12,7 @@ const CaseEvidenceSection = () => {
   const myntraNodes = useCounter(598, myntraVisible);
 
   return (
-    <section id="proof" className="py-40 px-6 md:px-12 bg-black relative z-10">
+    <section id="proof" className="py-40 px-6 md:px-12 bg-background relative z-10">
       <div className="max-w-7xl mx-auto">
         <div
           ref={headerRef}
@@ -21,7 +21,7 @@ const CaseEvidenceSection = () => {
           }`}
         >
           <h2 className="font-heading text-6xl md:text-[8rem] font-black mb-6 tracking-tighter italic uppercase">
-            Case <span className="text-primary">Evidence.</span>
+            Case <span className="gradient-text">Evidence.</span>
           </h2>
           <p className="text-muted-foreground uppercase tracking-[0.5em] text-[10px] font-black">
             Managed Network Output

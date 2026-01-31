@@ -35,7 +35,7 @@ const ServicesSection = () => {
   const { ref: networkRef, isVisible: networkVisible } = useRevealAnimation();
 
   return (
-    <section id="services" className="py-32 px-6 md:px-12 bg-black relative z-10">
+    <section id="services" className="py-32 px-6 md:px-12 bg-background relative z-10">
       <div className="max-w-7xl mx-auto">
         <div
           ref={headerRef}
@@ -45,7 +45,7 @@ const ServicesSection = () => {
         >
           <div className="max-w-xl">
             <h2 className="font-heading text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter">
-              System <span className="text-primary">Capabilities.</span>
+              System <span className="gradient-text">Capabilities.</span>
             </h2>
             <p className="text-muted-foreground text-sm">
               Automated influencer marketing services designed for awareness, authority, and
@@ -112,7 +112,7 @@ const ServiceCard = ({
       <h4 className="text-primary text-xs font-black uppercase mb-4 tracking-widest">{title}</h4>
       <p className="text-muted-foreground text-sm mb-8">{description}</p>
       <div className="flex flex-wrap gap-2">
-        <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[7px] font-bold">
+        <span className="px-3 py-1 rounded-full bg-foreground/5 border border-border text-[7px] font-bold">
           {tag}
         </span>
       </div>

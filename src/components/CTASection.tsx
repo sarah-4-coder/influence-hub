@@ -16,7 +16,7 @@ const CTASection = ({ onOpenBrandForm }: CTASectionProps) => {
         }`}
       >
         <h2 className="font-heading text-6xl md:text-[8rem] font-black leading-none mb-12 tracking-tighter italic uppercase">
-          Scale <br /> <span className="text-primary">Initiated.</span>
+          Scale <br /> <span className="gradient-text">Initiated.</span>
         </h2>
         <p className="text-muted-foreground text-lg md:text-2xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">
           Access the SaaS infrastructure. Choose your portal entrance to begin.
@@ -34,12 +34,12 @@ const CTASection = ({ onOpenBrandForm }: CTASectionProps) => {
               Automate your influencer logistics. Request a campaign blueprint and full portal
               access.
             </p>
-            <button className="btn-protocol w-full py-5 rounded-sm text-[10px]">
+            <button className="btn-protocol dark:hover:bg-white w-full py-5 rounded-sm text-[10px]">
               Request Brand Access
             </button>
           </div>
-          <div className="glass p-12 rounded-[2.5rem] border-white/10 text-left hover:bg-white/5 transition cursor-pointer group">
-            <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-white">
+          <div className="glass p-12 rounded-[2.5rem] border-border text-left hover:bg-foreground/5 transition cursor-pointer group">
+            <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-foreground">
               For Influencers
             </h4>
             <p className="text-sm text-muted-foreground mb-10 leading-relaxed font-medium">
@@ -52,7 +52,7 @@ const CTASection = ({ onOpenBrandForm }: CTASectionProps) => {
           </div>
         </div>
         <p className="mt-24 text-[10px] uppercase font-black text-muted-foreground tracking-[0.5em]">
-          Direct Operations: <span className="text-white">dotfluencee@gmail.com</span>
+          Direct Operations: <span className="text-foreground">dotfluencee@gmail.com</span>
         </p>
       </div>
     </section>
