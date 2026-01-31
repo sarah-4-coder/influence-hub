@@ -14,7 +14,7 @@ const ThemeToggle = () => {
         className={`absolute top-1 w-6 h-6 rounded-full transition-all duration-300 flex items-center justify-center ${
           theme === 'dark'
             ? 'left-1 bg-primary'
-            : 'left-7 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400'
+            : 'left-7 bg-gradient-to-r from-[#3498DB] via-[#2980B9] to-cyan-400'
         }`}
       >
         {theme === 'dark' ? (

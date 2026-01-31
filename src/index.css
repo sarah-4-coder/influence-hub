@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    /* Light theme - Influencer-centric with bold gradients */
-    --neon: 330 85% 60%;
+    /* Light theme - Influencer-centric with bold blue gradients */
+    --neon: 204 70% 53%;
     --background: 0 0% 98%;
-    --foreground: 250 20% 15%;
+    --foreground: 210 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 250 20% 15%;
+    --card-foreground: 210 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 250 20% 15%;
+    --popover-foreground: 210 20% 15%;
 
-    --primary: 330 85% 60%;
+    --primary: 204 70% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 280 70% 95%;
-    --secondary-foreground: 280 70% 30%;
+    --secondary: 204 60% 95%;
+    --secondary-foreground: 204 70% 30%;
 
-    --muted: 250 10% 92%;
-    --muted-foreground: 250 10% 45%;
+    --muted: 210 10% 92%;
+    --muted-foreground: 210 10% 45%;
 
     --accent: 195 85% 55%;
     --accent-foreground: 0 0% 100%;
@@ -32,18 +32,18 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 250 20% 90%;
-    --input: 250 20% 90%;
-    --ring: 330 85% 60%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 204 70% 53%;
 
     --radius: 0.5rem;
 
     --glass-bg: 0 0% 100% / 0.7;
-    --glass-border: 250 20% 90%;
+    --glass-border: 210 20% 90%;
 
-    /* Light theme gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(330 85% 60%), hsl(280 70% 55%), hsl(195 85% 55%));
-    --gradient-secondary: linear-gradient(135deg, hsl(40 95% 60%), hsl(330 85% 60%));
+    /* Light theme gradients - Blue based */
+    --gradient-primary: linear-gradient(135deg, hsl(204 70% 53%), hsl(220 70% 55%), hsl(195 85% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(40 95% 60%), hsl(204 70% 53%));
     --gradient-accent: linear-gradient(135deg, hsl(195 85% 55%), hsl(170 70% 50%));
   }
 
@@ -103,7 +103,7 @@
   /* Light theme social pattern */
   .social-pattern {
     background-image: 
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24' fill='none' stroke='%23e879f9' stroke-width='0.5' opacity='0.15'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'%3E%3C/rect%3E%3Cpath d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'%3E%3C/path%3E%3Cline x1='17.5' y1='6.5' x2='17.51' y2='6.5'%3E%3C/line%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24' fill='none' stroke='%233498DB' stroke-width='0.5' opacity='0.15'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'%3E%3C/rect%3E%3Cpath d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'%3E%3C/path%3E%3Cline x1='17.5' y1='6.5' x2='17.51' y2='6.5'%3E%3C/line%3E%3C/svg%3E");
     background-size: 80px 80px;
   }
 

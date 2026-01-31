@@ -17,8 +17,8 @@ const Sparkle = ({ delay, left, top }: { delay: number; left: string; top: strin
       />
       <defs>
         <linearGradient id="sparkle-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#f472b6" />
-          <stop offset="50%" stopColor="#a855f7" />
+          <stop offset="0%" stopColor="#3498DB" />
+          <stop offset="50%" stopColor="#2980B9" />
           <stop offset="100%" stopColor="#22d3ee" />
         </linearGradient>
       </defs>
@@ -76,7 +76,7 @@ const LightThemeDecorations = () => {
     { delay: 3.5, left: '5%', top: '40%' },
   ];
 
-  const confettiColors = ['#f472b6', '#a855f7', '#22d3ee', '#facc15', '#fb923c'];
+  const confettiColors = ['#3498DB', '#2980B9', '#22d3ee', '#facc15', '#34d399'];
   const confetti = Array.from({ length: 15 }, (_, i) => ({
     delay: i * 0.5,
     left: `${5 + Math.random() * 90}%`,
@@ -88,17 +88,17 @@ const LightThemeDecorations = () => {
       {/* Gradient Blobs */}
       <GradientBlob
         className="w-[400px] h-[400px] top-[5%] left-[-10%] opacity-40"
-        colors="linear-gradient(135deg, #f472b6, #a855f7)"
+        colors="linear-gradient(135deg, #3498DB, #2980B9)"
         parallaxSpeed={0.03}
       />
       <GradientBlob
         className="w-[500px] h-[500px] top-[30%] right-[-15%] opacity-30"
-        colors="linear-gradient(135deg, #22d3ee, #a855f7)"
+        colors="linear-gradient(135deg, #22d3ee, #2980B9)"
         parallaxSpeed={-0.05}
       />
       <GradientBlob
         className="w-[350px] h-[350px] bottom-[10%] left-[20%] opacity-35"
-        colors="linear-gradient(135deg, #facc15, #fb923c, #f472b6)"
+        colors="linear-gradient(135deg, #facc15, #34d399, #3498DB)"
         parallaxSpeed={0.08}
       />
       <GradientBlob
