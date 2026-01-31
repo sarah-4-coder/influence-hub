@@ -47,7 +47,7 @@ const CaseEvidenceSection = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-6 border-t border-white/10 pt-10">
               <div>
-                <p className="text-3xl font-black text-black">
+                <p className="text-3xl font-black text-foreground">
                   {flipkartCreators.toLocaleString()}+
                 </p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
@@ -55,13 +55,13 @@ const CaseEvidenceSection = () => {
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-black text-black">{flipkartDays}</p>
+                <p className="text-3xl font-black text-foreground">{flipkartDays}</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   Days
                 </p>
               </div>
               <div>
-                <p className="text-3xl font-black text-black">{flipkartROI}%</p>
+                <p className="text-3xl font-black text-foreground">{flipkartROI}%</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   ROI
                 </p>
@@ -87,7 +87,7 @@ const CaseEvidenceSection = () => {
             </p>
             <div className="grid grid-cols-2 gap-6 border-t border-white/10 pt-10">
               <div>
-                <p className="text-3xl font-black text-black">{myntraNodes}</p>
+                <p className="text-3xl font-black text-foreground">{myntraNodes}</p>
                 <p className="text-[9px] text-muted-foreground uppercase font-bold tracking-widest mt-1">
                   Nodes Orchestrated
                 </p>

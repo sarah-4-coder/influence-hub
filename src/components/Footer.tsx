@@ -17,7 +17,7 @@ const Footer = () => {
           LinkedIn
         </a>
       </div>
-      <div className="mt-6 md:mt-0 text-black opacity-70">System built for the 1%</div>
+      <div className="mt-6 md:mt-0 text-foreground opacity-70">System built for the 1%</div>
     </footer>
   );
 };
