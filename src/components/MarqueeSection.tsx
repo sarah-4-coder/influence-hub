@@ -15,14 +15,14 @@ const MarqueeSection = () => {
   const { ref, isVisible } = useRevealAnimation();
 
   return (
-    <section className="py-24 bg-[#030303] border-y border-white/5 relative z-10 overflow-hidden">
+    <section className="py-24 bg-card border-y border-border relative z-10 overflow-hidden">
       <h3
         ref={ref}
         className={`font-heading text-3xl font-black mb-16 uppercase text-center tracking-tighter transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}
       >
-        Niche <span className="text-primary">Authority Modules</span>
+        Niche <span className="gradient-text">Authority Modules</span>
       </h3>
 
       <div
@@ -35,7 +35,7 @@ const MarqueeSection = () => {
           {[...niches, ...niches].map((niche, index) => (
             <div
               key={index}
-              className="glass px-10 py-6 rounded-2xl border-white/5 flex flex-col min-w-[300px]"
+              className="glass px-10 py-6 rounded-2xl border-border flex flex-col min-w-[300px]"
             >
               <h5 className="text-primary text-xs font-black mb-2 uppercase tracking-widest">
                 {niche.title}

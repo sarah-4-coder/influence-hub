@@ -5,7 +5,7 @@ const ManualEraSection = () => {
   const { ref: rightRef, isVisible: rightVisible } = useRevealAnimation();
 
   return (
-    <section id="logic" className="py-32 px-6 md:px-12 bg-[#050505] relative z-10">
+    <section id="logic" className="py-32 px-6 md:px-12 bg-card relative z-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div
           ref={leftRef}
@@ -20,7 +20,7 @@ const ManualEraSection = () => {
           <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
             Most agencies break under the weight of 50 creators. We built a platform to thrive at
             500+. We don't just "find people"—we deploy strategies across automated layers of{' '}
-            <span className="text-white font-bold">Paid, Barter, and Elite Performance</span>{' '}
+            <span className="text-foreground font-bold">Paid, Barter, and Elite Performance</span>{' '}
             modules.
           </p>
           <div className="space-y-6">

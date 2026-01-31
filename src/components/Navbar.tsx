@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {
   onOpenBrandForm: () => void;
@@ -41,27 +42,28 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
         </div>
 
         <div className="hidden md:flex space-x-12 text-[10px] uppercase font-black tracking-[0.3em] text-muted-foreground">
-          <a href="#logic" className="hover:text-white transition">
+          <a href="#logic" className="hover:text-foreground transition">
             The Logic
           </a>
-          <a href="#services" className="hover:text-white transition">
+          <a href="#services" className="hover:text-foreground transition">
             Capabilities
           </a>
-          <a href="#proof" className="hover:text-white transition text-primary">
+          <a href="#proof" className="hover:text-foreground transition text-primary">
             Evidence
           </a>
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
+          <ThemeToggle />
           <a
             href="#join"
-            className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-white transition"
+            className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition"
           >
             Login
           </a>
           <button
             onClick={onOpenBrandForm}
-            className="btn-protocol px-6 py-2.5 rounded-sm text-[10px]"
+            className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
           >
             Get Access
           </button>
@@ -106,10 +108,11 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
             Evidence
           </a>
           <div className="pt-8 flex flex-col items-center space-y-6">
+            <ThemeToggle />
             <a
               href="#join"
               onClick={closeMobileMenu}
-              className="text-lg font-black uppercase tracking-widest text-muted-foreground hover:text-white transition"
+              className="text-lg font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition"
             >
               Login
             </a>
@@ -118,7 +121,7 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
                 closeMobileMenu();
                 onOpenBrandForm();
               }}
-              className="btn-protocol px-8 py-4 rounded-sm text-sm"
+              className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
             >
               Get Access
             </button>
