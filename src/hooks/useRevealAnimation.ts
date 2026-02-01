@@ -1,17 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useRevealAnimation = (threshold = 0.1) => {
+export const useRevealAnimation = (threshold = 0.1, startVisible = false) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(startVisible);
 
   useEffect(() => {
+    // If startVisible is true, trigger immediately
+    if (startVisible) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
       },
-      { threshold }
+      { threshold, rootMargin: '50px' }
     );
 
     if (ref.current) {
@@ -19,7 +25,7 @@ export const useRevealAnimation = (threshold = 0.1) => {
     }
 
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, startVisible]);
 
   return { ref, isVisible };
 };
