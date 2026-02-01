@@ -5,8 +5,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onOpenBrandForm }: HeroSectionProps) => {
-  // Start visible immediately for hero section
-  const { ref, isVisible } = useRevealAnimation(0.1, true);
+  const { ref, isVisible } = useRevealAnimation();
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 z-10">
