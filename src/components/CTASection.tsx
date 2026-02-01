@@ -55,7 +55,7 @@ const CTASection = ({ onOpenBrandForm }: CTASectionProps) => {
           </div>
         </div>
         <p className="mt-24 text-[10px] uppercase font-black text-muted-foreground tracking-[0.5em]">
-          Direct Operations: <span className="text-foreground">dotfluencee@gmail.com</span>
+          Direct Operations: <span className="text-foreground">collaborate@dotfluence.in</span>
         </p>
       </div>
     </section>
