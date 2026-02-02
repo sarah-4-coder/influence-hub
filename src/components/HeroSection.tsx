@@ -1,19 +1,11 @@
-import { useRevealAnimation } from '@/hooks/useRevealAnimation';
-
 interface HeroSectionProps {
   onOpenBrandForm: () => void;
 }
 
 const HeroSection = ({ onOpenBrandForm }: HeroSectionProps) => {
-  const { ref, isVisible } = useRevealAnimation();
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 z-10">
-      <div
-        ref={ref}
-        className={`max-w-6xl transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        }`}
+      <div className="max-w-6xl opacity-100 translate-y-0 animate-fade-in"
       >
         <p className="text-[10px] font-black uppercase tracking-[0.5em] text-primary mb-8">
           SaaS-ENABLED // INFLUENCE ORCHESTRATION
