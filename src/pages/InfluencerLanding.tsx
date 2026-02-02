@@ -12,8 +12,9 @@ import Footer from '@/components/Footer';
 import LightThemeDecorations from '@/components/LightThemeDecorations';
 import PageSkeleton from '@/components/PageSkeleton';
 import { useTheme } from '@/hooks/useTheme';
+import { influencerContent } from '@/data/influencerContent';
 
-const Index = () => {
+const InfluencerLanding = () => {
   const [isBrandFormOpen, setIsBrandFormOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
@@ -22,7 +23,6 @@ const Index = () => {
   const closeBrandForm = () => setIsBrandFormOpen(false);
 
   useEffect(() => {
-    // Very short delay to show skeleton, then reveal content
     const timer = setTimeout(() => setIsLoading(false), 100);
     return () => clearTimeout(timer);
   }, []);
@@ -34,17 +34,17 @@ const Index = () => {
   return (
     <div className={`relative ${theme === 'dark' ? 'dot-matrix scanline' : 'social-pattern'}`}>
       {theme === 'dark' ? <ParallaxBlobs /> : <LightThemeDecorations />}
-      <Navbar onOpenBrandForm={openBrandForm} />
-      <HeroSection onOpenBrandForm={openBrandForm} />
-      <ManualEraSection />
-      <ServicesSection />
-      <MarqueeSection />
-      <CaseEvidenceSection />
-      <CTASection onOpenBrandForm={openBrandForm} />
+      <Navbar onOpenBrandForm={openBrandForm} variant="influencer" />
+      <HeroSection content={influencerContent.hero} onOpenBrandForm={openBrandForm} variant="influencer" />
+      <ManualEraSection content={influencerContent.manualEra} />
+      <ServicesSection content={influencerContent.services} />
+      <MarqueeSection niches={influencerContent.niches} />
+      <CaseEvidenceSection content={influencerContent.caseStudies} />
+      <CTASection content={influencerContent.cta} onOpenBrandForm={openBrandForm} variant="influencer" />
       <BrandFormOverlay isOpen={isBrandFormOpen} onClose={closeBrandForm} />
-      <Footer />
+      <Footer tagline={influencerContent.footer.tagline} />
     </div>
   );
 };
 
-export default Index;
+export default InfluencerLanding;

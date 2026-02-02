@@ -1,11 +1,39 @@
 import { useRevealAnimation } from '@/hooks/useRevealAnimation';
 import { Link } from 'react-router-dom';
 
-interface CTASectionProps {
-  onOpenBrandForm: () => void;
+interface CTAContent {
+  title: string;
+  titleHighlight: string;
+  subtitle: string;
+  creatorCard?: {
+    title: string;
+    description: string;
+    cta: string;
+  };
+  brandCard?: {
+    title: string;
+    description: string;
+    cta: string;
+  };
+  agencyCard?: {
+    title: string;
+    description: string;
+    cta: string;
+  };
+  enterpriseCard?: {
+    title: string;
+    description: string;
+    cta: string;
+  };
 }
 
-const CTASection = ({ onOpenBrandForm }: CTASectionProps) => {
+interface CTASectionProps {
+  onOpenBrandForm: () => void;
+  content: CTAContent;
+  variant?: 'influencer' | 'agency';
+}
+
+const CTASection = ({ onOpenBrandForm, content, variant = 'agency' }: CTASectionProps) => {
   const { ref, isVisible } = useRevealAnimation();
 
   return (
@@ -17,42 +45,82 @@ const CTASection = ({ onOpenBrandForm }: CTASectionProps) => {
         }`}
       >
         <h2 className="font-heading text-6xl md:text-[8rem] font-black leading-none mb-12 tracking-tighter italic uppercase">
-          Scale <br /> <span className="gradient-text">Initiated.</span>
+          {content.title} <br /> <span className="gradient-text">{content.titleHighlight}</span>
         </h2>
         <p className="text-muted-foreground text-lg md:text-2xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">
-          Access the SaaS infrastructure. Choose your portal entrance to begin.
+          {content.subtitle}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div
-            className="glass p-12 rounded-[2.5rem] border-primary/20 text-left hover:bg-primary/5 transition cursor-pointer group"
-            onClick={onOpenBrandForm}
-          >
-            <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-primary">
-              For Brands
-            </h4>
-            <p className="text-sm text-muted-foreground mb-10 leading-relaxed font-medium">
-              Automate your influencer logistics. Request a campaign blueprint and full portal
-              access.
-            </p>
-            <button className="btn-protocol dark:hover:bg-white w-full py-5 rounded-sm text-[10px]">
-              Request Brand Access
-            </button>
-          </div>
-          <div className="glass p-12 rounded-[2.5rem] border-border text-left hover:bg-foreground/5 transition cursor-pointer group">
-            <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-foreground">
-              For Influencers
-            </h4>
-            <p className="text-sm text-muted-foreground mb-10 leading-relaxed font-medium">
-              Join the high-scale network. Receive automated briefs, specifications, and secure
-              outcomes.
-            </p>
-            <button className="bg-foreground text-background font-black w-full py-5 rounded-sm text-[10px] uppercase tracking-widest hover:bg-foreground/90 transition">
-            <Link to="https://platform.dotfluence.in/login">
-              Sign Up to Protocol
-            </Link>
-            </button>
-          </div>
+          {variant === 'influencer' ? (
+            <>
+              {/* Creator Card */}
+              <div className="glass p-12 rounded-[2.5rem] border-primary/20 text-left hover:bg-primary/5 transition cursor-pointer group">
+                <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-primary">
+                  {content.creatorCard?.title}
+                </h4>
+                <p className="text-sm text-muted-foreground mb-10 leading-relaxed font-medium">
+                  {content.creatorCard?.description}
+                </p>
+                <Link 
+                  to="https://platform.dotfluence.in/login"
+                  className="btn-protocol dark:hover:bg-white w-full py-5 rounded-sm text-[10px] block text-center"
+                >
+                  {content.creatorCard?.cta}
+                </Link>
+              </div>
+              
+              {/* Brand Card */}
+              <div 
+                className="glass p-12 rounded-[2.5rem] border-border text-left hover:bg-foreground/5 transition cursor-pointer group"
+                onClick={onOpenBrandForm}
+              >
+                <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-foreground">
+                  {content.brandCard?.title}
+                </h4>
+                <p className="text-sm text-muted-foreground mb-10 leading-relaxed font-medium">
+                  {content.brandCard?.description}
+                </p>
+                <button className="bg-foreground text-background font-black w-full py-5 rounded-sm text-[10px] uppercase tracking-widest hover:bg-foreground/90 transition">
+                  {content.brandCard?.cta}
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Agency Card */}
+              <div
+                className="glass p-12 rounded-[2.5rem] border-primary/20 text-left hover:bg-primary/5 transition cursor-pointer group"
+                onClick={onOpenBrandForm}
+              >
+                <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-primary">
+                  {content.agencyCard?.title}
+                </h4>
+                <p className="text-sm text-muted-foreground mb-10 leading-relaxed font-medium">
+                  {content.agencyCard?.description}
+                </p>
+                <button className="btn-protocol dark:hover:bg-white w-full py-5 rounded-sm text-[10px]">
+                  {content.agencyCard?.cta}
+                </button>
+              </div>
+              
+              {/* Enterprise Card */}
+              <div 
+                className="glass p-12 rounded-[2.5rem] border-border text-left hover:bg-foreground/5 transition cursor-pointer group"
+                onClick={onOpenBrandForm}
+              >
+                <h4 className="text-2xl font-black uppercase tracking-tighter mb-4 text-foreground">
+                  {content.enterpriseCard?.title}
+                </h4>
+                <p className="text-sm text-muted-foreground mb-10 leading-relaxed font-medium">
+                  {content.enterpriseCard?.description}
+                </p>
+                <button className="bg-foreground text-background font-black w-full py-5 rounded-sm text-[10px] uppercase tracking-widest hover:bg-foreground/90 transition">
+                  {content.enterpriseCard?.cta}
+                </button>
+              </div>
+            </>
+          )}
         </div>
         <p className="mt-24 text-[10px] uppercase font-black text-muted-foreground tracking-[0.5em]">
           Direct Operations: <span className="text-foreground">collaborate@dotfluence.in</span>

@@ -1,21 +1,19 @@
 import { useRevealAnimation } from '@/hooks/useRevealAnimation';
 
-const niches = [
-  { title: 'Fashion', subtitle: 'Lookbooks & Outfit Inspiration' },
-  { title: 'Gaming', subtitle: 'Gameplay & Live Streams' },
-  { title: 'Technology', subtitle: 'Unboxing & Deep Reviews' },
-  { title: 'Beauty', subtitle: 'Makeup & Skincare Routines' },
-  { title: 'Fitness', subtitle: 'Workouts & Diet Tips' },
-  { title: 'Travel', subtitle: 'Vlogs & Destination Guides' },
-  { title: 'Education', subtitle: 'Tutorials & Skill Dev' },
-  { title: 'Automobile', subtitle: 'Reviews & Feature Highlights' },
-];
+interface Niche {
+  title: string;
+  subtitle: string;
+}
 
-const MarqueeSection = () => {
+interface MarqueeSectionProps {
+  niches: Niche[];
+}
+
+const MarqueeSection = ({ niches }: MarqueeSectionProps) => {
   const { ref, isVisible } = useRevealAnimation();
 
   return (
-    <section className="py-24 bg-card border-y border-border relative z-10 overflow-hidden">
+    <section id="verticals" className="py-24 bg-card border-y border-border relative z-10 overflow-hidden">
       <h3
         ref={ref}
         className={`font-heading text-3xl font-black mb-16 uppercase text-center tracking-tighter transition-all duration-1000 ${
