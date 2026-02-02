@@ -2,7 +2,7 @@ import { useTheme } from '@/hooks/useTheme';
 
 const Sparkle = ({ delay, left, top }: { delay: number; left: string; top: string }) => (
   <div
-    className="fixed w-2 h-2 animate-sparkle pointer-events-none"
+    className="fixed w-2 h-2 animate-sparkle pointer-events-none will-change-transform"
     style={{
       left,
       top,
@@ -25,15 +25,20 @@ const Sparkle = ({ delay, left, top }: { delay: number; left: string; top: strin
   </div>
 );
 
-const GradientBlob = ({
-  className,
-  colors,
-}: {
-  className: string;
-  colors: string;
-}) => (
+const Confetti = ({ delay, left, color }: { delay: number; left: string; color: string }) => (
   <div
-    className={`fixed rounded-full blur-[80px] pointer-events-none animate-blob ${className}`}
+    className="fixed bottom-0 w-2 h-2 rounded-sm animate-confetti pointer-events-none will-change-transform"
+    style={{
+      left,
+      animationDelay: `${delay}s`,
+      backgroundColor: color,
+    }}
+  />
+);
+
+const GradientBlob = ({ className, colors }: { className: string; colors: string }) => (
+  <div
+    className={`fixed rounded-full blur-[60px] pointer-events-none animate-blob will-change-transform ${className}`}
     style={{ background: colors }}
   />
 );
@@ -48,23 +53,43 @@ const LightThemeDecorations = () => {
     { delay: 0.5, left: '85%', top: '20%' },
     { delay: 1, left: '20%', top: '60%' },
     { delay: 1.5, left: '75%', top: '70%' },
+    { delay: 2, left: '50%', top: '30%' },
+    { delay: 2.5, left: '30%', top: '80%' },
+    { delay: 3, left: '90%', top: '50%' },
+    { delay: 3.5, left: '5%', top: '40%' },
   ];
+
+  const confettiColors = ['#3498DB', '#2980B9', '#22d3ee', '#facc15', '#34d399'];
+  const confetti = Array.from({ length: 10 }, (_, i) => ({
+    delay: i * 0.8,
+    left: `${10 + (i * 8)}%`,
+    color: confettiColors[i % confettiColors.length],
+  }));
 
   return (
     <>
-      {/* Gradient Blobs - Reduced count for performance */}
+      {/* Gradient Blobs - Reduced blur for performance */}
       <GradientBlob
         className="w-[300px] h-[300px] top-[5%] left-[-10%] opacity-30"
         colors="linear-gradient(135deg, #3498DB, #2980B9)"
       />
       <GradientBlob
-        className="w-[350px] h-[350px] top-[40%] right-[-10%] opacity-25"
+        className="w-[400px] h-[400px] top-[30%] right-[-15%] opacity-25"
         colors="linear-gradient(135deg, #22d3ee, #2980B9)"
       />
+      <GradientBlob
+        className="w-[250px] h-[250px] bottom-[15%] left-[20%] opacity-25"
+        colors="linear-gradient(135deg, #facc15, #34d399, #3498DB)"
+      />
 
-      {/* Sparkles - Reduced count */}
+      {/* Sparkles */}
       {sparkles.map((sparkle, i) => (
         <Sparkle key={i} {...sparkle} />
+      ))}
+
+      {/* Confetti */}
+      {confetti.map((c, i) => (
+        <Confetti key={i} {...c} />
       ))}
     </>
   );
