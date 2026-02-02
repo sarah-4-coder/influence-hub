@@ -1,19 +1,28 @@
-const Footer = () => {
+interface FooterProps {
+  tagline?: string;
+}
+
+const Footer = ({ tagline = '© 2026 DotFluence Infrastructure // The Influence Protocol' }: FooterProps) => {
   return (
     <footer className="py-20 border-t border-border px-6 md:px-12 bg-card flex flex-col md:flex-row justify-between items-center text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground z-10 relative">
       <div className="mb-6 md:mb-0">
-        © 2026 DotFluence Infrastructure // The Influence Protocol
+        {tagline}
       </div>
       <div className="flex space-x-12">
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/dotfluence.in"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition"
         >
           Instagram
         </a>
-        <a href="#" className="hover:text-primary transition">
+        <a 
+          href="https://www.linkedin.com/company/dotfluence/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition"
+        >
           LinkedIn
         </a>
       </div>
