@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface HeroContent {
   tagline: string;
   title: string[];
@@ -32,12 +34,21 @@ const HeroSection = ({
         </p>
 
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 justify-center items-center">
-          <button
-            onClick={onOpenBrandForm}
-            className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs"
-          >
-            {content.cta}
-          </button>
+          {variant === "influencer" ? (
+            <Link
+              to="https://platform.dotfluence.in/login"
+              className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs"
+            >
+              {content?.cta}
+            </Link>
+          ) : (
+            <button
+              onClick={onOpenBrandForm}
+              className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs"
+            >
+              {content.cta}
+            </button>
+          )}
           {/* <a
             href={variant === "influencer" ? "/agency" : "#join"}
             className="text-[11px] font-black uppercase tracking-[0.4em] text-foreground flex items-center group"
