@@ -4,7 +4,7 @@ export const agencyContent = {
     title: ['DEPLOY INFLUENCE', 'AT SCALE.'],
     description:
       'The high-performance platform for Brands and Agencies. Discover verified creators, manage logistics, and execute multi-node campaigns with zero manual friction.',
-    cta: 'Enter Agency Portal',
+    cta: 'Enter Agency Portal (Coming soon)',
     secondaryCta: 'Custom Campaign Blueprint',
   },
   
@@ -111,7 +111,7 @@ export const agencyContent = {
       title: 'Agency / Brand Account',
       description:
         'Create your professional profile, browse verified creators, and deploy campaigns instantly.',
-      cta: 'Sign Up for Access',
+      cta: 'Request for Access',
     },
     enterpriseCard: {
       title: 'Enterprise Concierge',

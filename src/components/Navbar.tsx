@@ -72,12 +72,14 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
 
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          <a
-            href="https://platform.dotfluence.in/login"
-            className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
-          >
-            Login
-          </a>
+            {variant === 'influencer' && (
+            <a
+              href="https://platform.dotfluence.in/login"
+              className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
+            >
+              Login
+            </a>
+            )}
           {/* <button
             onClick={onOpenBrandForm}
             className=""
@@ -117,6 +119,7 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
           ))}
           <div className="pt-8 flex flex-col items-center space-y-6">
             <ThemeToggle />
+              {variant === 'influencer' && (
             <a
               href="https://platform.dotfluence.in/login"
               onClick={closeMobileMenu}
@@ -124,6 +127,7 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
             >
               Login
             </a>
+              )}
             {/* <button
               onClick={() => {
                 closeMobileMenu();
