@@ -1,9 +1,8 @@
 import { useTheme } from '@/hooks/useTheme';
-import { useParallax } from '@/hooks/useParallax';
 
 const Sparkle = ({ delay, left, top }: { delay: number; left: string; top: string }) => (
   <div
-    className="absolute w-2 h-2 animate-sparkle pointer-events-none"
+    className="fixed w-2 h-2 animate-sparkle pointer-events-none will-change-transform"
     style={{
       left,
       top,
@@ -28,37 +27,21 @@ const Sparkle = ({ delay, left, top }: { delay: number; left: string; top: strin
 
 const Confetti = ({ delay, left, color }: { delay: number; left: string; color: string }) => (
   <div
-    className="fixed bottom-0 w-3 h-3 rounded-sm animate-confetti pointer-events-none"
+    className="fixed bottom-0 w-2 h-2 rounded-sm animate-confetti pointer-events-none will-change-transform"
     style={{
       left,
       animationDelay: `${delay}s`,
       backgroundColor: color,
-      animationDuration: `${8 + Math.random() * 4}s`,
     }}
   />
 );
 
-const GradientBlob = ({
-  className,
-  colors,
-  parallaxSpeed,
-}: {
-  className: string;
-  colors: string;
-  parallaxSpeed: number;
-}) => {
-  const scrollY = useParallax();
-
-  return (
-    <div
-      className={`fixed rounded-full blur-[80px] pointer-events-none animate-blob ${className}`}
-      style={{
-        background: colors,
-        transform: `translateY(${scrollY * parallaxSpeed}px)`,
-      }}
-    />
-  );
-};
+const GradientBlob = ({ className, colors }: { className: string; colors: string }) => (
+  <div
+    className={`fixed rounded-full blur-[60px] pointer-events-none animate-blob will-change-transform ${className}`}
+    style={{ background: colors }}
+  />
+);
 
 const LightThemeDecorations = () => {
   const { theme } = useTheme();
@@ -77,34 +60,26 @@ const LightThemeDecorations = () => {
   ];
 
   const confettiColors = ['#3498DB', '#2980B9', '#22d3ee', '#facc15', '#34d399'];
-  const confetti = Array.from({ length: 15 }, (_, i) => ({
-    delay: i * 0.5,
-    left: `${5 + Math.random() * 90}%`,
+  const confetti = Array.from({ length: 10 }, (_, i) => ({
+    delay: i * 0.8,
+    left: `${10 + (i * 8)}%`,
     color: confettiColors[i % confettiColors.length],
   }));
 
   return (
     <>
-      {/* Gradient Blobs */}
+      {/* Gradient Blobs - Reduced blur for performance */}
       <GradientBlob
-        className="w-[400px] h-[400px] top-[5%] left-[-10%] opacity-40"
+        className="w-[300px] h-[300px] top-[5%] left-[-10%] opacity-30"
         colors="linear-gradient(135deg, #3498DB, #2980B9)"
-        parallaxSpeed={0.03}
       />
       <GradientBlob
-        className="w-[500px] h-[500px] top-[30%] right-[-15%] opacity-30"
+        className="w-[400px] h-[400px] top-[30%] right-[-15%] opacity-25"
         colors="linear-gradient(135deg, #22d3ee, #2980B9)"
-        parallaxSpeed={-0.05}
       />
       <GradientBlob
-        className="w-[350px] h-[350px] bottom-[10%] left-[20%] opacity-35"
+        className="w-[250px] h-[250px] bottom-[15%] left-[20%] opacity-25"
         colors="linear-gradient(135deg, #facc15, #34d399, #3498DB)"
-        parallaxSpeed={0.08}
-      />
-      <GradientBlob
-        className="w-[300px] h-[300px] top-[60%] right-[25%] opacity-25"
-        colors="linear-gradient(135deg, #34d399, #22d3ee)"
-        parallaxSpeed={-0.04}
       />
 
       {/* Sparkles */}

@@ -1,25 +1,22 @@
 import { useRevealAnimation } from '@/hooks/useRevealAnimation';
 
-const services = [
-  {
-    title: 'Celebrity & Macro Campaigns',
-    description:
-      "Collaboration with India's top-tier Instagram personalities. Designed to boost awareness, visibility, and brand authority through high-reach collaborations with verified creators.",
-    tag: 'VERIFIED CREATORS',
-  },
-  {
-    title: 'Micro & Nano Collaborations',
-    description:
-      'Tapping into highly engaged niche communities for brands valuing authenticity over vanity metrics. Relatable storytelling, superior engagement, and long-term loyalty.',
-    tag: 'NICHE COMMUNITIES',
-  },
-  {
-    title: 'Product Seeding & UGC Content',
-    description:
-      'End-to-end management of gifting, unboxing, and user-generated content. We identify influencers who genuinely love your product to create reusable visual assets.',
-    tag: 'UGC ASSETS',
-  },
-];
+interface ServiceItem {
+  id: string;
+  title: string;
+  tag: string;
+  description: string;
+}
+
+interface ServicesContent {
+  title: string;
+  titleHighlight: string;
+  subtitle: string;
+  items: ServiceItem[];
+}
+
+interface ServicesSectionProps {
+  content: ServicesContent;
+}
 
 const networkTiers = [
   { range: '1K-10K', label: 'Nano' },
@@ -30,7 +27,7 @@ const networkTiers = [
   { range: 'Verified', label: 'OTT Celebs' },
 ];
 
-const ServicesSection = () => {
+const ServicesSection = ({ content }: ServicesSectionProps) => {
   const { ref: headerRef, isVisible: headerVisible } = useRevealAnimation();
   const { ref: networkRef, isVisible: networkVisible } = useRevealAnimation();
 
@@ -45,18 +42,17 @@ const ServicesSection = () => {
         >
           <div className="max-w-xl">
             <h2 className="font-heading text-4xl md:text-6xl font-black mb-4 uppercase tracking-tighter">
-              System <span className="gradient-text">Capabilities.</span>
+              {content.title} <span className="gradient-text">{content.titleHighlight}</span>
             </h2>
             <p className="text-muted-foreground text-sm">
-              Automated influencer marketing services designed for awareness, authority, and
-              engagement.
+              {content.subtitle}
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={index} {...service} delay={index * 100} />
+          {content.items.map((service, index) => (
+            <ServiceCard key={service.id} {...service} delay={index * 100} />
           ))}
         </div>
 
@@ -73,7 +69,7 @@ const ServicesSection = () => {
             {networkTiers.map((tier, index) => (
               <div
                 key={index}
-                className="glass p-6 rounded-xl text-center border-white/5 hover:border-primary/30 transition group"
+                className="glass p-6 rounded-xl text-center border-border hover:border-primary/30 transition group"
               >
                 <p className="text-primary text-lg font-black">{tier.range}</p>
                 <p className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest">

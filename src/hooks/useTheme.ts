@@ -7,10 +7,9 @@ export const useTheme = () => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('dotfluence-theme') as Theme;
       if (stored) return stored;
-      // Default to light theme
-      return 'light';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
-    return 'light';
+    return 'dark';
   });
 
   useEffect(() => {

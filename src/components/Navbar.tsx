@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 interface NavbarProps {
   onOpenBrandForm: () => void;
+  variant?: 'influencer' | 'agency';
 }
 
-const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
+const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +25,20 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
+  const navLinks = variant === 'influencer' 
+    ? [
+        { href: '#opportunities', label: 'Opportunities' },
+        { href: '#verticals', label: 'Verticals' },
+        { href: '#success', label: 'Success Stories', highlight: true },
+      ]
+    : [
+        { href: '#logic', label: 'The Logic' },
+        { href: '#services', label: 'Capabilities' },
+        { href: '#proof', label: 'Evidence', highlight: true },
+      ];
+
+  const ctaText = variant === 'influencer' ? 'Join Network' : 'Get Access';
+
   return (
     <>
       <nav
@@ -31,7 +48,7 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
       >
         <div
           className="flex items-center space-x-3 group cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => navigate('/')}
         >
           <div className="w-10 h-10 bg-white flex items-center justify-center rounded-sm rotate-45 group-hover:bg-primary group-hover:rotate-0 transition-all duration-500">
             <div className="w-2 h-2 bg-black -rotate-45 group-hover:rotate-0" />
@@ -42,15 +59,15 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
         </div>
 
         <div className="hidden md:flex space-x-12 text-[10px] uppercase font-black tracking-[0.3em] text-muted-foreground">
-          <a href="#logic" className="hover:text-foreground transition">
-            The Logic
-          </a>
-          <a href="#services" className="hover:text-foreground transition">
-            Capabilities
-          </a>
-          <a href="#proof" className="hover:text-foreground transition text-primary">
-            Evidence
-          </a>
+          {navLinks.map((link) => (
+            <a 
+              key={link.href}
+              href={link.href} 
+              className={`hover:text-foreground transition ${link.highlight ? 'text-primary' : ''}`}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
@@ -65,7 +82,7 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
             onClick={onOpenBrandForm}
             className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
           >
-            Get Access
+            {ctaText}
           </button>
         </div>
 
@@ -86,27 +103,18 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
-          <a
-            href="#logic"
-            onClick={closeMobileMenu}
-            className="text-2xl font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition"
-          >
-            The Logic
-          </a>
-          <a
-            href="#services"
-            onClick={closeMobileMenu}
-            className="text-2xl font-black uppercase tracking-widest text-muted-foreground hover:text-primary transition"
-          >
-            Capabilities
-          </a>
-          <a
-            href="#proof"
-            onClick={closeMobileMenu}
-            className="text-2xl font-black uppercase tracking-widest text-primary transition"
-          >
-            Evidence
-          </a>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={closeMobileMenu}
+              className={`text-2xl font-black uppercase tracking-widest transition ${
+                link.highlight ? 'text-primary' : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
           <div className="pt-8 flex flex-col items-center space-y-6">
             <ThemeToggle />
             <a
@@ -123,7 +131,7 @@ const Navbar = ({ onOpenBrandForm }: NavbarProps) => {
               }}
               className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
             >
-              Get Access
+              {ctaText}
             </button>
           </div>
         </div>
