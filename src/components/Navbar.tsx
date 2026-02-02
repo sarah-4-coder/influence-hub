@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import ThemeToggle from './ThemeToggle';
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
   onOpenBrandForm: () => void;
-  variant?: 'influencer' | 'agency';
+  variant?: "influencer" | "agency";
 }
 
-const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
+const Navbar = ({ onOpenBrandForm, variant = "agency" }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -18,37 +18,38 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
-  const navLinks = variant === 'influencer' 
-    ? [
-        { href: '#opportunities', label: 'Opportunities' },
-        { href: '#verticals', label: 'Verticals' },
-        { href: '#success', label: 'Success Stories', highlight: true },
-      ]
-    : [
-        { href: '#logic', label: 'The Logic' },
-        { href: '#services', label: 'Capabilities' },
-        { href: '#proof', label: 'Evidence', highlight: true },
-      ];
+  const navLinks =
+    variant === "influencer"
+      ? [
+          { href: "#opportunities", label: "Opportunities" },
+          { href: "#verticals", label: "Verticals" },
+          { href: "#success", label: "Success Stories", highlight: true },
+        ]
+      : [
+          { href: "#logic", label: "The Logic" },
+          { href: "#services", label: "Capabilities" },
+          { href: "#proof", label: "Evidence", highlight: true },
+        ];
 
-  const ctaText = variant === 'influencer' ? 'Join Network' : 'Get Access';
+  const ctaText = variant === "influencer" ? "Join Network" : "Get Access";
 
   return (
     <>
       <nav
         className={`fixed w-full z-[100] px-6 md:px-12 flex justify-between items-center transition-all duration-500 ${
-          isScrolled ? 'glass py-4' : 'py-6'
+          isScrolled ? "glass py-4" : "py-6"
         }`}
       >
         <div
           className="flex items-center space-x-3 group cursor-pointer"
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
         >
           <div className="w-10 h-10 bg-white flex items-center justify-center rounded-sm rotate-45 group-hover:bg-primary group-hover:rotate-0 transition-all duration-500">
             <div className="w-2 h-2 bg-black -rotate-45 group-hover:rotate-0" />
@@ -60,10 +61,10 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
 
         <div className="hidden md:flex space-x-12 text-[10px] uppercase font-black tracking-[0.3em] text-muted-foreground">
           {navLinks.map((link) => (
-            <a 
+            <a
               key={link.href}
-              href={link.href} 
-              className={`hover:text-foreground transition ${link.highlight ? 'text-primary' : ''}`}
+              href={link.href}
+              className={`hover:text-foreground transition ${link.highlight ? "text-primary" : ""}`}
             >
               {link.label}
             </a>
@@ -72,14 +73,14 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
 
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-            {variant === 'influencer' && (
+          {variant === "influencer" && (
             <a
               href="https://platform.dotfluence.in/login"
               className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
             >
               Login
             </a>
-            )}
+          )}
           {/* <button
             onClick={onOpenBrandForm}
             className=""
@@ -101,7 +102,7 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
       {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 z-[99] bg-background/95 backdrop-blur-lg transition-all duration-500 md:hidden ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
@@ -111,7 +112,9 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
               href={link.href}
               onClick={closeMobileMenu}
               className={`text-2xl font-black uppercase tracking-widest transition ${
-                link.highlight ? 'text-primary' : 'text-muted-foreground hover:text-primary'
+                link.highlight
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
               }`}
             >
               {link.label}
@@ -119,15 +122,15 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
           ))}
           <div className="pt-8 flex flex-col items-center space-y-6">
             <ThemeToggle />
-              {variant === 'influencer' && (
-            <a
-              href="https://platform.dotfluence.in/login"
-              onClick={closeMobileMenu}
-              className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
-            >
-              Login
-            </a>
-              )}
+            {variant === "influencer" && (
+              <a
+                href="https://platform.dotfluence.in/login"
+                onClick={closeMobileMenu}
+                className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
+              >
+                Login
+              </a>
+            )}
             {/* <button
               onClick={() => {
                 closeMobileMenu();
