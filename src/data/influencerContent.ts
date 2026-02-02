@@ -1,11 +1,11 @@
 export const influencerContent = {
   hero: {
-    tagline: 'YOUR CONTENT. OUR ENGINE.',
-    title: ['JOIN THE', 'NETWORK.'],
+    tagline: 'JOIN THE. NETWORK.',
+    title: ['YOUR CONTENT', 'OUR ENGINE.'],
     description:
       "Join India's most powerful platform for elite content creators. Stop the manual hustle and get hired by the world's most iconic brands through one automated portal.",
     cta: 'Join the Network',
-    secondaryCta: 'Brand Inquiries',
+    // secondaryCta: 'Brand Inquiries',
   },
   
   manualEra: {

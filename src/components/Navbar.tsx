@@ -74,16 +74,16 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
           <ThemeToggle />
           <a
             href="https://platform.dotfluence.in/login"
-            className="text-[10px] font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition"
+            className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
           >
             Login
           </a>
-          <button
+          {/* <button
             onClick={onOpenBrandForm}
-            className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
+            className=""
           >
             {ctaText}
-          </button>
+          </button> */}
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -120,11 +120,11 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
             <a
               href="https://platform.dotfluence.in/login"
               onClick={closeMobileMenu}
-              className="text-lg font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition"
+              className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
             >
               Login
             </a>
-            <button
+            {/* <button
               onClick={() => {
                 closeMobileMenu();
                 onOpenBrandForm();
@@ -132,7 +132,7 @@ const Navbar = ({ onOpenBrandForm, variant = 'agency' }: NavbarProps) => {
               className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
             >
               {ctaText}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
