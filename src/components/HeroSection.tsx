@@ -37,17 +37,17 @@ const HeroSection = ({
           {variant === "influencer" ? (
             <Link
               to="https://platform.dotfluence.in/login"
-              className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs"
+              className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs "
             >
               {content?.cta}
             </Link>
           ) : (
-            <button
-              onClick={onOpenBrandForm}
-              className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs"
+            <Link
+              to="https://platform.dotfluence.in/company/login"
+              className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs "
             >
-              {content.cta}
-            </button>
+              {content?.cta}
+            </Link>
           )}
           {/* <a
             href={variant === "influencer" ? "/agency" : "#join"}

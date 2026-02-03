@@ -73,20 +73,21 @@ const Navbar = ({ onOpenBrandForm, variant = "agency" }: NavbarProps) => {
 
         <div className="hidden md:flex items-center space-x-4">
           <ThemeToggle />
-          {variant === "influencer" && (
+          {variant === "influencer" ? (
             <a
               href="https://platform.dotfluence.in/login"
               className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
             >
               Login
             </a>
+          ) : (
+            <a
+              href="https://platform.dotfluence.in/company/login"
+              className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
+            >
+              Login
+            </a>
           )}
-          {/* <button
-            onClick={onOpenBrandForm}
-            className=""
-          >
-            {ctaText}
-          </button> */}
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -122,9 +123,17 @@ const Navbar = ({ onOpenBrandForm, variant = "agency" }: NavbarProps) => {
           ))}
           <div className="pt-8 flex flex-col items-center space-y-6">
             <ThemeToggle />
-            {variant === "influencer" && (
+            {variant === "influencer"? (
               <a
                 href="https://platform.dotfluence.in/login"
+                onClick={closeMobileMenu}
+                className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
+              >
+                Login
+              </a>
+            ):(
+              <a
+                href="https://platform.dotfluence.in/company/login"
                 onClick={closeMobileMenu}
                 className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
               >
