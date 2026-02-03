@@ -111,7 +111,7 @@ export const agencyContent = {
       title: 'Agency / Brand Account',
       description:
         'Create your professional profile, browse verified creators, and deploy campaigns instantly.',
-      cta: 'Request for Access',
+      cta: 'SignUp for Access',
     },
     enterpriseCard: {
       title: 'Enterprise Concierge',
