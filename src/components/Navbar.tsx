@@ -82,10 +82,10 @@ const Navbar = ({ onOpenBrandForm, variant = "agency" }: NavbarProps) => {
             </a>
           ) : (
             <a
-              href="https://platform.dotfluence.in/company/login"
-              className="btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
+              // href="https://platform.dotfluence.in/company/login"
+              className=" hidden btn-protocol px-6 py-2.5 rounded-sm text-[10px] dark:hover:bg-white"
             >
-              Login
+              {/* Login */}
             </a>
           )}
         </div>
@@ -133,11 +133,11 @@ const Navbar = ({ onOpenBrandForm, variant = "agency" }: NavbarProps) => {
               </a>
             ):(
               <a
-                href="https://platform.dotfluence.in/company/login"
+                // href="https://platform.dotfluence.in/company/login"
                 onClick={closeMobileMenu}
-                className="btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
+                className="hidden btn-protocol dark:hover:bg-white px-8 py-4 rounded-sm text-sm"
               >
-                Login
+                {/* Login */}
               </a>
             )}
             {/* <button

@@ -43,7 +43,8 @@ const HeroSection = ({
             </Link>
           ) : (
             <Link
-              to="https://platform.dotfluence.in/company/login"
+            to=""
+              // to="https://platform.dotfluence.in/company/login"
               className="btn-protocol dark:hover:bg-white px-12 py-5 rounded-sm text-xs "
             >
               {content?.cta}

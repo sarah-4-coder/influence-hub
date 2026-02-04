@@ -108,7 +108,7 @@ const CTASection = ({
                 </p>
                 <Link
                   to="https://platform.dotfluence.in/company/signup"
-                  className="btn-protocol dark:hover:bg-white w-full py-5 rounded-sm text-[10px] block text-center"
+                  className="btn-protocol dark:hover:bg-white w-full py-5 rounded-sm text-[10px] block text-center opacity-50 cursor-not-allowed pointer-events-none"
                 >
                   {content.agencyCard?.cta}
                 </Link>
