@@ -18,7 +18,7 @@ const Footer = ({ tagline = '© 2026 DotFluence Infrastructure // The Influence 
           Instagram
         </a>
         <a 
-          href="https://www.linkedin.com/company/dotfluence/"
+          href="https://www.linkedin.com/company/dotfluence-influencer-first-marketing-agency/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition"
